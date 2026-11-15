@@ -1,0 +1,206 @@
+/* Texturas e Efeitos Táteis de Caderno */
+
+/* Mesa de Expedição */
+.expedition-desk {
+  background-color: #241a12;
+  background-image: 
+    radial-gradient(circle at 50% 25%, #38291c 0%, #1e150e 90%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 8px);
+  min-height: 100vh;
+  padding: 1.5rem 0.75rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .expedition-desk {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+}
+
+/* Folha do Caderno de Campo */
+.journal-page {
+  background-color: var(--paper-bg);
+  border: 1px solid var(--paper-border);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.4),
+    0 3px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Camada de fundo de textura sutil atrás do conteúdo */
+.journal-page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(ellipse at 85% 15%, rgba(210, 195, 165, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 15% 85%, rgba(195, 175, 140, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.journal-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fita Adesiva / Masking Tape */
+.masking-tape {
+  position: absolute;
+  height: 22px;
+  background-color: var(--tape-color);
+  box-shadow: 0 1px 3px rgba(30, 20, 10, 0.25);
+  z-index: 4;
+  pointer-events: none;
+  border-top: 1px dashed var(--tape-edge);
+  border-bottom: 1px dashed var(--tape-edge);
+}
+
+.masking-tape::before,
+.masking-tape::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: inherit;
+}
+
+.masking-tape::before {
+  left: -4px;
+  clip-path: polygon(100% 0, 0 20%, 60% 40%, 0 60%, 80% 80%, 0 100%, 100% 100%);
+}
+
+.masking-tape::after {
+  right: -4px;
+  clip-path: polygon(0 0, 100% 25%, 30% 50%, 100% 75%, 20% 100%, 0 100%);
+}
+
+.tape-top-left {
+  top: -8px;
+  left: -6px;
+  width: 70px;
+  transform: rotate(-8deg);
+}
+
+.tape-top-right {
+  top: -8px;
+  right: -6px;
+  width: 70px;
+  transform: rotate(8deg);
+}
+
+.tape-center {
+  top: -10px;
+  left: calc(50% - 40px);
+  width: 80px;
+  transform: rotate(-1deg);
+}
+
+/* Carimbo de Tinta / Rubber Stamp */
+.rubber-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  border: 1.5px dashed currentColor;
+  border-radius: 3px;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.stamp-danger {
+  color: var(--stamp-red);
+  border-color: var(--stamp-red);
+}
+
+.stamp-official {
+  color: var(--stamp-blue);
+  border-color: var(--stamp-blue);
+}
+
+.stamp-kanto {
+  color: var(--moss-accent);
+  border-color: var(--moss-accent);
+}
+
+/* Selo de Cera / Wax Seal */
+.wax-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+/* Fichas de Campo: O CONTAINER NUNCA É ROTACIONADO DIRETAMENTE */
+.specimen-card {
+  background-color: var(--paper-card);
+  border: 1px solid var(--paper-border);
+  box-shadow: var(--shadow-paper-flat);
+  position: relative;
+  transform: none !important; /* Mantém todo o texto 100% nítido */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Camada de papel de fundo levemente inclinada (atrás do texto) */
+.specimen-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--paper-warm);
+  border: 1px solid var(--paper-border);
+  border-radius: 3px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.specimen-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Rotação aplicada estritamente à camada de fundo ::before */
+.tilt-left-sm::before { transform: rotate(-0.6deg); }
+.tilt-right-sm::before { transform: rotate(0.6deg); }
+.tilt-slight::before { transform: rotate(-0.3deg); }
+.tilt-right-md::before { transform: rotate(0.8deg); }
+.tilt-left-md::before { transform: rotate(-0.8deg); }
+
+.specimen-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-paper-lifted);
+  border-color: var(--ink-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specimen-card:hover {
+    transform: none !important;
+  }
+}

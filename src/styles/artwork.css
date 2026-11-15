@@ -1,0 +1,68 @@
+/* Tratamento das Ilustrações - Filtros estritamente aplicados na tag <img> */
+
+.naturalist-illustration-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.75rem;
+}
+
+/* Mancha de aquarela botânica (sem blur pesado em listas) */
+.watercolor-wash {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Filtros aplicados estritamente na tag <img> */
+img.naturalist-artwork {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: multiply;
+  filter: sepia(0.2) contrast(1.06) brightness(0.96);
+  user-select: none;
+}
+
+/* Sprite de miniatura alternativo em caso de falha de artwork */
+img.fallback-sprite {
+  image-rendering: pixelated;
+  width: 96px;
+  height: 96px;
+  mix-blend-mode: multiply;
+}
+
+/* Efeito de esboço suave ativado apenas na tela de detalhe ou destaque */
+@keyframes sketchReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sketch-reveal {
+  animation: sketchReveal 0.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketch-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Moldura botânica */
+.botanical-frame {
+  border: 1px solid var(--paper-border);
+  background-color: rgba(255, 255, 255, 0.4);
+}

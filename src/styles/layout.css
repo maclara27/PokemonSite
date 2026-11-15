@@ -1,0 +1,238 @@
+/* Estrutura e Layouts do Diário de Campo */
+
+.journal-header {
+  padding: 1.25rem 1rem 1rem;
+  border-bottom: 2px solid var(--paper-border);
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .journal-header {
+    padding: 1.75rem 1.5rem 1.25rem;
+  }
+}
+
+.journal-header-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .journal-header-top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.journal-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.journal-subtitle {
+  font-family: var(--font-hand);
+  font-size: 20px;
+  color: var(--ink-secondary);
+  line-height: 1.3;
+}
+
+.journal-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.nav-bookmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  background-color: var(--paper-warm);
+  border: 1px solid var(--paper-border);
+  border-bottom: 2px solid var(--paper-crease);
+  border-radius: 3px 3px 0 0;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  position: relative;
+}
+
+.nav-bookmark:hover {
+  background-color: #fff;
+  color: var(--stamp-red);
+}
+
+.nav-bookmark.active {
+  background-color: var(--paper-bg);
+  border-bottom-color: var(--paper-bg);
+  color: var(--stamp-red);
+  font-weight: 700;
+}
+
+/* Área de Conteúdo Principal */
+.journal-main {
+  padding: 1.25rem 0.85rem 3rem;
+}
+
+@media (min-width: 768px) {
+  .journal-main {
+    padding: 2.5rem 2rem 4rem;
+  }
+}
+
+/* Barra de Pesquisa e Filtros */
+.field-search-bar {
+  background-color: rgba(238, 228, 208, 0.7);
+  border: 1px solid var(--paper-border);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(42, 33, 27, 0.05);
+}
+
+.search-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+@media (min-width: 900px) {
+  .search-controls {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+  min-width: 240px;
+}
+
+.search-field-input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.4rem;
+  background-color: #fff;
+  border: 1px solid var(--paper-border);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink-primary);
+  box-shadow: inset 0 1px 2px rgba(42, 33, 27, 0.04);
+}
+
+.search-field-input:focus {
+  outline: 2px solid var(--stamp-red);
+  border-color: transparent;
+}
+
+.search-icon-lens {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-muted);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 0.6rem 2rem 0.6rem 0.85rem;
+  background-color: #fff;
+  border: 1px solid var(--paper-border);
+  border-radius: 2px;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--ink-primary);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23423429' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.filter-select:focus {
+  outline: 2px solid var(--stamp-red);
+}
+
+/* Grid de Catálogo */
+.specimen-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 540px) {
+  .specimen-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.75rem 1.25rem;
+  }
+}
+
+/* Botão Vintage de Ação */
+.vintage-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  background-color: var(--paper-warm);
+  border: 1px solid var(--paper-border);
+  border-radius: 2px;
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  box-shadow: 0 1px 3px rgba(42, 33, 27, 0.1);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.vintage-btn:hover {
+  background-color: #fff;
+  color: var(--stamp-red);
+  border-color: var(--ink-secondary);
+}
+
+.vintage-btn-primary {
+  background-color: var(--stamp-red);
+  color: #fff;
+  border-color: #7a2215;
+}
+
+.vintage-btn-primary:hover {
+  background-color: #852517;
+  color: #fff;
+}
+
+/* Rodapé do Diário */
+.journal-footer {
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--paper-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  text-align: center;
+  background: rgba(238, 228, 208, 0.3);
+}

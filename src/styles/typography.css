@@ -1,0 +1,113 @@
+/* Regras Tipográficas: Alta Nitidez e Legibilidade */
+
+h1, h2, h3, h4, .title-serif {
+  font-family: var(--font-serif);
+  color: var(--ink-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1 { font-size: 2.15rem; }
+h2 { font-size: 1.65rem; }
+h3 { font-size: 1.25rem; }
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.65rem; }
+  h2 { font-size: 1.95rem; }
+  h3 { font-size: 1.35rem; }
+}
+
+/* Anotações e Notas de Campo (Lora: estilo caligráfico com nitidez absoluta) */
+.handwritten {
+  font-family: var(--font-hand);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-handwritten);
+  display: block;
+  transform: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Bloco de Notas do Pesquisador */
+.handwritten-note-box {
+  background-color: var(--paper-warm);
+  border-left: 4px solid var(--stamp-red);
+  padding: 0.95rem 1.2rem;
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
+  transform: none !important;
+}
+
+.handwritten-note-box p {
+  font-family: var(--font-hand);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--ink-handwritten);
+  margin-top: 0.35rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Legendas curtas */
+.handwritten-caption {
+  font-family: var(--font-hand);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink-secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Numerais de Ficha */
+.specimen-number {
+  font-family: var(--font-serif);
+  font-variant-numeric: oldstyle-nums;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+}
+
+/* Letra Capitular para Histórias / Lore */
+.lore-paragraph {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--ink-primary);
+  line-height: 1.7;
+  text-align: justify;
+  -webkit-font-smoothing: antialiased;
+}
+
+.lore-paragraph::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.45rem;
+  margin-top: 0.15rem;
+  color: var(--stamp-red);
+  font-weight: 700;
+}
+
+/* Etiqueta de Classificação */
+.museum-tag {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
